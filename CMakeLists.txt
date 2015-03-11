@@ -7,3 +7,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -std=c++1y")
 aux_source_directory(. SRC_LIST)
 
 add_subdirectory(templates)
+add_subdirectory(smartpointer)

@@ -40,11 +40,20 @@ std::string getTypeOf(T var){
     return ret;
 }
 
+template <typename T>
+void swapPtr(T& first, T& second){
+    T tmp = first;
+    first = second;
+    second = tmp;
+    std::cout << "Successfully switched!" << std::endl;
+}
+
 template<typename T>
 class myClass{
 
 private:
     T attrib;
+    std::string *myString = new std::string("Hallo Welt");
 
 public:
 
@@ -53,8 +62,17 @@ public:
         attrib = attribute;
     }
 
+    // Destructor
+    ~myClass(){
+        delete myString;
+    }
+
     T getAttrib(){
         return attrib;
+    }
+
+    std::string* getString(){
+        return myString;
     }
 
 };
