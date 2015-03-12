@@ -8,3 +8,4 @@ aux_source_directory(. SRC_LIST)
 
 add_subdirectory(templates)
 add_subdirectory(smartpointer)
+add_subdirectory(moveSemantics)
