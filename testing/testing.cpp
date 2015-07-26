@@ -12,7 +12,19 @@ bool myFunc(glm::vec2 first, glm::vec2 second){
 
 int main(){
 
-	std::vector<glm::vec2> myVec;
+	const float firstQuaternion[4] { 0.f, 1.f, 2.f, 1.f };
+	const float secondQuaternion[4] { 0.f, 2.f, 1.f, 1.f };
+	const float alpha = 0.4f;
+
+	float zaehler[4];
+
+	for(size_t i = 0; i < 4; i++){
+		zaehler[i] = firstQuaternion[i] + alpha * (secondQuaternion[i] - firstQuaternion[i]);
+	}
+
+	std::cout << "zaehler[2] = " << zaehler[2] << std::endl;
+
+	/*std::vector<glm::vec2> myVec;
 
 	myVec.push_back({1, 32.25});
 	myVec.push_back({3, 626.24});
@@ -25,7 +37,7 @@ int main(){
 
 	for(std::vector<glm::vec2>::iterator it = myVec.begin(); it < myVec.end(); it++){
 		std::cout << ' ' << "{" << (*it).x << ", " << (*it).y << "}" << std::endl;
-	}
+	}*/
 
 	std::cout << std::endl << std::endl;
 
