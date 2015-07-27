@@ -57,13 +57,21 @@ void NLERPQuaternion(const float firstQuaternion[4], const float secondQuaternio
 		up[i] = q[i] + alpha * diff[i];
 	}
 
-	float conjugated[4] { up[0], -up[1], -up[2], -up[3] };
-	float downr = 0;
-	downr = up[0] * conjugated[0] - up[1] * conjugated[1] - up[2] * conjugated[2] - up[3] * conjugated[3];
-	downr = sqrtf(downr);
+	//float conjugated[4] { up[0], -up[1], -up[2], -up[3] };
+	//float downr = 0;
+	float len = 0;
+	//downr = up[0] * conjugated[0] - up[1] * conjugated[1] - up[2] * conjugated[2] - up[3] * conjugated[3];
 
 	for(int i = 0; i < 4; i++){
-		result[i] = up[i] * (1 / downr);
+		len += up[i] * up[i];
+	}
+
+	len = sqrtf(len);
+	//downr = sqrtf(downr);
+
+	for(int i = 0; i < 4; i++){
+		//result[i] = up[i] * (1 / downr);
+		result[i] = up[i] / len;
 	}
 
 }
